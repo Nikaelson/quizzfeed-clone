@@ -1,0 +1,27 @@
+<div class="conteiner__quizz">
+  <div class="quizz__logo display-flex">
+    <img src=".\assets\imgs\logo.png" alt="logo buzzfeed" class="quizz__logo_img">
+    <h3>{{title}}</h3>
+  </div>
+  <div 
+  *ngIf="!finished"
+  class="quizz__questios display-flex">
+    <h3>{{questionSelected.question}}</h3>
+  </div>
+  <div 
+  *ngIf="!finished"
+  class="quizz__options display-flex">
+    <button 
+    *ngFor="let question of questionSelected.options"
+    (click)="nextQuestion(question.alias)"
+    class="quizz__options_btn">{{question.name}}</button>
+
+  </div>
+  
+  <div 
+  *ngIf="finished"
+  class="quizz__results display-flex">
+    <h2 class="quizz__results_titulo">O seu resultado é:</h2>
+    <p class="quizz__results_corpo">{{result}}</p>
+  </div>
+</div>
